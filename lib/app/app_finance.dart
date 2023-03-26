@@ -1,4 +1,5 @@
 import 'package:finance_ranking/app/core/database/sqlite_adm_connection.dart';
+import 'package:finance_ranking/app/modules/auth/auth_module.dart';
 import 'package:finance_ranking/app/modules/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 
@@ -26,10 +27,14 @@ class _AppFinanceState extends State<AppFinance> {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Finance Rancking',
       debugShowCheckedModeBanner: false,
-      home: SplashPage(),
+      initialRoute: '/login',
+      routes: {
+        ...AuthModule().routers,
+      },
+      home: const SplashPage(),
     );
   }
 }
